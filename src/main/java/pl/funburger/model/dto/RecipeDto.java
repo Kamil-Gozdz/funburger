@@ -1,6 +1,5 @@
-package pl.funburger.model.entity;
+package pl.funburger.model.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,29 +9,20 @@ import pl.funburger.model.enums.CategoryEnum;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Entity
-@Table(name = "recipes")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Recipe {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@Builder
+public class RecipeDto {
+
     private Long id;
 
     private String name;
 
-    @ElementCollection
-    @CollectionTable(name = "ingred_amount",
-            joinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "id")})
-    @MapKeyColumn(name = "ingredient")
-    @Column(name = "amount")
     private Map<String, Integer> ingredients = new LinkedHashMap<>();
 
     private String description;
 
-    @Enumerated(EnumType.STRING)
     private CategoryEnum category;
 
     private Double avgScore;
