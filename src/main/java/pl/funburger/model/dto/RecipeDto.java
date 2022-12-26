@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.funburger.model.enums.CategoryEnum;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Data
@@ -19,7 +18,7 @@ public class RecipeDto {
 
     private String name;
 
-    private Map<String, Integer> ingredients = new LinkedHashMap<>();
+    private Map<String, Integer> ingredients;
 
     private String description;
 

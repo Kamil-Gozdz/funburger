@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.funburger.model.enums.CategoryEnum;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Entity
@@ -28,7 +27,7 @@ public class Recipe {
             joinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "id")})
     @MapKeyColumn(name = "ingredient")
     @Column(name = "amount")
-    private Map<String, Integer> ingredients = new LinkedHashMap<>();
+    private Map<String, Integer> ingredients;
 
     private String description;
 
