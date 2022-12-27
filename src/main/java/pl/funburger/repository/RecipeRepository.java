@@ -5,4 +5,6 @@ import pl.funburger.model.entity.Recipe;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
+
+
 }
