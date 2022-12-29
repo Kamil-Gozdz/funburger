@@ -1,6 +1,7 @@
 package pl.funburger.model.mapper;
 
 import org.springframework.stereotype.Component;
+import pl.funburger.model.dto.UserCreateDto;
 import pl.funburger.model.dto.UserDto;
 import pl.funburger.model.entity.User;
 
@@ -13,9 +14,12 @@ public class UserMapper {
                 .username(user.getUsername())
                 .build();
     }
-    public User toNewEntity (UserDto userDto){
+    public User toNewEntity (UserCreateDto createDto){
         return User.builder()
-                .username(userDto.getUsername())
+                .username(createDto.getUsername())
+                .password(createDto.getPassword())
+                .email(createDto.getEmail())
+                .roles(createDto.getRoles())
                 .build();
     }
 }

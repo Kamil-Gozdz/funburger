@@ -1,10 +1,13 @@
 package pl.funburger.service.user;
 
+import pl.funburger.model.dto.UserCreateDto;
 import pl.funburger.model.dto.UserDto;
 
 public interface UserService {
 
-    UserDto createUser(UserDto userDto);
+    UserDto createUser(UserCreateDto createDto);
 
-    void deleteUser(UserDto userDto);
+    void deleteUserById(Long id);
+
+    UserDto getLoggedInUser();
 }
