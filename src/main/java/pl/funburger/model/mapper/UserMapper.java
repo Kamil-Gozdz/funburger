@@ -19,7 +19,6 @@ public class UserMapper {
                 .username(createDto.getUsername())
                 .password(createDto.getPassword())
                 .email(createDto.getEmail())
-                .roles(createDto.getRoles())
                 .build();
     }
 }

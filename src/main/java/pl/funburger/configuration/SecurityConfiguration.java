@@ -29,10 +29,11 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.authorizeHttpRequests((auth) ->auth.requestMatchers("/user/delete/{id}").hasAuthority("ADMIN")
-                        .requestMatchers("/user/add").permitAll())
-                .httpBasic()
-                .and().csrf().disable();
+        http.authorizeHttpRequests(auth ->auth.requestMatchers("/user/add","/category/{category}").permitAll()
+                        .requestMatchers("/user/delete/{id}","/user/all").hasAuthority("ADMIN")
+                        .requestMatchers("/recipe/add","recipe/delete").authenticated().anyRequest())
+                .httpBasic().disable()
+                .csrf().disable();
         return http.build();
     }
 }
